@@ -10,7 +10,9 @@ module.exports = function(grunt) {
     var yeomanConfig = {
         app: 'app',
         pub: 'public',
-        dist: 'dist'
+        dist: 'dist',
+        test: 'test',
+        tmp: '.tmp'
     };
 
     grunt.initConfig({
@@ -55,6 +57,25 @@ module.exports = function(grunt) {
                 }
             }
         },
+        compass: {
+            options: {
+                sassDir: '<%= yeoman.pub %>/css',
+                cssDir: '<%= yeoman.tmp %>/css',
+                imagesDir: '<%= yeoman.pub %>/img',
+                javascriptsDir: '<%= yeoman.pub %>/js',
+                fontsDir: '<%= yeoman.pub %>/css/fonts',
+                importPath: '<%= yeoman.pub %>/lib',
+                relativeAssets: true
+            },
+            dist: {
+
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+        },
         nodemon: {
             dev: {
                 options: {
@@ -73,7 +94,11 @@ module.exports = function(grunt) {
         },
         concurrent: {
             server: {
-                tasks: ['nodemon', 'watch'],
+                tasks: [
+                    'compass:server',
+                    'nodemon',
+                    'watch'
+                ],
                 options: {
                     logConcurrentOutput: true
                 }

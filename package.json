@@ -61,6 +61,7 @@
         "load-grunt-tasks": "latest",
         "time-grunt": "latest",
         "grunt-shell-spawn": "latest",
-        "grunt-contrib-clean": "latest"
+        "grunt-contrib-clean": "latest",
+        "grunt-contrib-compass": "latest"
     }
 }
