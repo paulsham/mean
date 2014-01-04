@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = function(grunt) {
+    // show elapsed time at the end
+    require('time-grunt')(grunt);
     // Project Configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
