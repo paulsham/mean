@@ -16,6 +16,10 @@ module.exports = function(grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
         pkg: grunt.file.readJSON('package.json'),
+        clean: {
+            dist: ['.tmp', '<%= yeoman.dist %>/*'],
+            server: '.tmp'
+        },
         watch: {
             jade: {
                 files: ['app/views/**'],
@@ -115,6 +119,7 @@ module.exports = function(grunt) {
 
         grunt.task.run([
             'shell:mongo',
+            'clean:server',
             'jshint',
             'concurrent:server'
         ]);

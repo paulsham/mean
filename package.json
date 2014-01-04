@@ -60,6 +60,7 @@
         "karma-coverage": "~0.1.0",
         "load-grunt-tasks": "latest",
         "time-grunt": "latest",
-        "grunt-shell-spawn": "latest"
+        "grunt-shell-spawn": "latest",
+        "grunt-contrib-clean": "latest"
     }
 }
