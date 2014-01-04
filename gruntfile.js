@@ -3,6 +3,9 @@
 module.exports = function(grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
+    // load all grunt tasks
+    require('load-grunt-tasks')(grunt);
+
     // Project Configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -81,15 +84,6 @@ module.exports = function(grunt) {
             }
         }
     });
-
-    //Load NPM tasks 
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-test');
-    grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-nodemon');
-    grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-env');
 
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
