@@ -68,9 +68,11 @@ module.exports = function(grunt) {
             }
         },
         concurrent: {
-            tasks: ['nodemon', 'watch'],
-            options: {
-                logConcurrentOutput: true
+            server: {
+                tasks: ['nodemon', 'watch'],
+                options: {
+                    logConcurrentOutput: true
+                }
             }
         },
         mochaTest: {
@@ -89,6 +91,14 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'test/karma/karma.conf.js'
             }
+        },
+        shell: {
+            mongo: {
+                command: 'mongod',
+                options: {
+                    async: true
+                }
+            }
         }
     });
 
@@ -96,7 +106,24 @@ module.exports = function(grunt) {
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('default', ['jshint', 'concurrent:server']);
+
+    grunt.registerTask('serve', function (target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
+        }
+
+        grunt.task.run([
+            'shell:mongo',
+            'jshint',
+            'concurrent:server'
+        ]);
+    });
+
+    grunt.registerTask('server', function () {
+        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+        grunt.task.run(['serve']);
+    });
 
     //Test task.
     grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
