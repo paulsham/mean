@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            server: '.tmp'
+            server: ['.tmp', '<%= yeoman.pub %>/css']
         },
         watch: {
             jade: {
@@ -59,8 +59,8 @@ module.exports = function(grunt) {
         },
         compass: {
             options: {
-                sassDir: '<%= yeoman.pub %>/css',
-                cssDir: '<%= yeoman.tmp %>/css',
+                sassDir: '<%= yeoman.pub %>/scss',
+                cssDir: '<%= yeoman.pub %>/css',
                 imagesDir: '<%= yeoman.pub %>/img',
                 javascriptsDir: '<%= yeoman.pub %>/js',
                 fontsDir: '<%= yeoman.pub %>/css/fonts',

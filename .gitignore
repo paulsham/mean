@@ -6,3 +6,4 @@ public/lib
 test/coverage/
 *.sublime-*
 .tmp
+public/css
