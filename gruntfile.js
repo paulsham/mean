@@ -7,7 +7,14 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Project Configuration
+    var yeomanConfig = {
+        app: 'app',
+        pub: 'public',
+        dist: 'dist'
+    };
+
     grunt.initConfig({
+        yeoman: yeomanConfig,
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             jade: {
