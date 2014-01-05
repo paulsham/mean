@@ -62,6 +62,7 @@
         "time-grunt": "latest",
         "grunt-shell-spawn": "latest",
         "grunt-contrib-clean": "latest",
-        "grunt-contrib-compass": "latest"
+        "grunt-contrib-compass": "latest",
+        "grunt-autoprefixer": "latest"
     }
 }

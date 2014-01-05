@@ -76,6 +76,19 @@ module.exports = function(grunt) {
                 }
             }
         },
+        autoprefixer: {
+            options: {
+                browsers: ['last 1 version']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/css/',
+                    src: '{,*/}*.css',
+                    dest: '.tmp/css/'
+                }]
+            }
+        },
         nodemon: {
             dev: {
                 options: {
@@ -146,7 +159,8 @@ module.exports = function(grunt) {
             'shell:mongo',
             'clean:server',
             'jshint',
-            'concurrent:server'
+            'concurrent:server',
+            'autoprefixer'
         ]);
     });
 
