@@ -42,6 +42,10 @@ module.exports = function(grunt) {
                     livereload: true,
                 },
             },
+            compass: {
+                files: ['<%= yeoman.pub %>/scss/{,*/}*.{scss,sass}'],
+                tasks: ['compass:server', 'autoprefixer']
+            },
             css: {
                 files: ['public/css/**'],
                 options: {
